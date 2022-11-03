@@ -9,6 +9,9 @@ pygame.init()
 #Create game screen : ! 2 brackets because 2 variables (tuple) !
 screen = pygame.display.set_mode((800,600))
 
+#Background
+background = pygame.image.load('background.jpg')
+
 #Title and Icon
 pygame.display.set_caption("Space Invaders")
 icon = pygame.image.load('alien.png')
@@ -40,6 +43,9 @@ while running:
 
     #Screen color : RGB - Red, Green, Blue,
     screen.fill((0, 25, 51))
+
+    #Include background in loop
+    screen.blit(background, (0, 0))
 
 #Allowing to close screen window
     for event in pygame.event.get() :
