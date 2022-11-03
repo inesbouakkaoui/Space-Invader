@@ -48,6 +48,13 @@ while running:
     
 #Adding player image + movement
     playerX += playerX_change
+
+#Adding bounderies
+    if playerX <=0:
+        playerX = 0
+    elif playerX >=736:
+        playerX = 736
+
     player(playerX,playerY)
 
     pygame.display.update()
