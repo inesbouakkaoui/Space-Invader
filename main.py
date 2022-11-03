@@ -20,11 +20,12 @@ playerX = 370
 playerY = 480
 playerX_change = 0
 
-#Enemy
+#Enemy and its position
 enemyImg = pygame.image.load('enemy.png')
-enemyX = random.randint(0, 736)
+enemyX = random.randint(0, 800)
 enemyY = random.randint(50, 150)
-enemyX_change = 0
+enemyX_change = 0.3
+enemyY_change = 40
 
 def player(x,y) :
     screen.blit (playerImg, (x,y))
@@ -45,7 +46,7 @@ while running:
         if event.type == pygame.QUIT :
             running = False
         
-        #if keystroke is pressed check wether its ight or left
+        #if keystroke is pressed check wether its right or left
         if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_LEFT:
                 playerX_change = -0.3
@@ -56,14 +57,25 @@ while running:
                 playerX_change = 0
             
     
-#Adding player image + movement
+#Adding player movement
     playerX += playerX_change
 
-#Adding bounderies
+#Enemy movement
+    enemyX += enemyX_change
+
+#Adding bounderies for player
     if playerX <=0:
         playerX = 0
     elif playerX >=736:
         playerX = 736
+
+#Adding bounderies and variations for enemy movement
+    if enemyX <=0:
+        enemyX_change = 0.3
+        enemyY += enemyY_change
+    elif enemyX >=736:
+        enemyX_change = -0.3
+        enemyY += enemyY_change
 
     player(playerX,playerY)
     enemy(enemyX, enemyY)
