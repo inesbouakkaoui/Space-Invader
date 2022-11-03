@@ -1,6 +1,7 @@
 # Space Invader in Pyhton (good luck to myself)
 #test of comments
 import pygame
+import random
 
 #Initialize pygame
 pygame.init()
@@ -19,8 +20,17 @@ playerX = 370
 playerY = 480
 playerX_change = 0
 
+#Enemy
+enemyImg = pygame.image.load('enemy.png')
+enemyX = random.randint(0, 736)
+enemyY = random.randint(50, 150)
+enemyX_change = 0
+
 def player(x,y) :
     screen.blit (playerImg, (x,y))
+     
+def enemy(x,y) :
+    screen.blit (enemyImg, (x,y))
 
 #Game Loop 
 running = True
@@ -56,6 +66,5 @@ while running:
         playerX = 736
 
     player(playerX,playerY)
-
+    enemy(enemyX, enemyY)
     pygame.display.update()
-
