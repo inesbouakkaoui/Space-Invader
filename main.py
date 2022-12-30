@@ -30,6 +30,13 @@ enemyY = random.randint(50, 150)
 enemyX_change = 0.3
 enemyY_change = 40
 
+#Bullet and its position
+bulletImg = pygame.image.load('bullet.png')
+bulletX = random.randint(0, 800)
+bulletY = random.randint(50, 150)
+bulletX_change = 0.3
+bulletY_change = 40
+
 def player(x,y) :
     screen.blit (playerImg, (x,y))
      
